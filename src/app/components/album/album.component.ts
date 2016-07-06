@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Album} from "../../album";
-import {Artist} from "../../artist";
 import {ActivatedRoute} from "@angular/router";
 import {SpotifyService} from "../../services/spotify.service";
 
@@ -19,7 +18,10 @@ export class AlbumComponent implements OnInit {
   ngOnInit() {
     this._spotifyService
       .getAlbum(this._route.snapshot.params.id)
-      .subscribe(album=>{this.album = album;console.log(this.album)});
+      .subscribe(album=> {
+        this.album = album;
+        console.log(this.album)
+      });
   }
 
 
